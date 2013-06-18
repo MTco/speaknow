@@ -45,5 +45,4 @@
     <preference name="fullscreen"       value="false" />
 
     <access origin="*" />
-    <plugin name="Speech" value="com.phonegap.plugins.speech.SpeechRecognizer" />
 </widget>

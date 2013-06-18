@@ -1,4 +1,5 @@
-cordova.define("com.phonegap.plugins.speech.SpeechRecognizer.SpeechRecognizer", function(require, exports, module) {cordova.define("com.phonegap.plugins.speech.SpeechRecognizer.SpeechRecognizer", function(require, exports, module) {/**
+cordova.define("com.phonegap.plugins.speech.SpeechRecognizer.SpeechRecognizer", function(require, exports, module) {(function() {
+/**
  *  SpeechRecognizer.js
  *  Speech Recognizer cordova plugin (Android)
  *
@@ -6,6 +7,9 @@ cordova.define("com.phonegap.plugins.speech.SpeechRecognizer.SpeechRecognizer", 
  *
  *  MIT Licensed
  */
+
+var platform = cordova.require('cordova/platform');
+var exec = cordova.require('cordova/exec');
 
 /**
  * c'tor
@@ -51,12 +55,10 @@ SpeechRecognizer.prototype.getSupportedLanguages = function(successCallback, err
 /**
  * Load
  */
-if(!window.plugins) {
-    window.plugins = {};
-}
-if (!window.plugins.speechrecognizer) {
-    window.plugins.speechrecognizer = new SpeechRecognizer();
+
+if (!exports.speechrecognizer) {
+    exports.speechrecognizer = new SpeechRecognizer();
 }
 
-});
+})();
 });

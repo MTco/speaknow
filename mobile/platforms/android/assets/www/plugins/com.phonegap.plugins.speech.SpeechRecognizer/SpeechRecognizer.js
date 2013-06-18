@@ -1,32 +1,40 @@
-cordova.define("com.phonegap.plugins.speech.SpeechRecognizer.SpeechRecognizer", function(require, exports, module) {(function() {
-/**
+cordova.define("com.phonegap.plugins.speech.SpeechRecognizer.SpeechRecognizer", function(require, exports, module) {/**
  *  SpeechRecognizer.js
  *  Speech Recognizer cordova plugin (Android)
  *
- *  @author Colin Turner
+ *  @author Renato Mangini
+ *  Based on generic SpeechRecognizer plugin by Colin Turner
  *
  *  MIT Licensed
  */
 
-var platform = cordova.require('cordova/platform');
 var exec = cordova.require('cordova/exec');
 
+exports.init = function() {
+  this.continuous = true;
+  this.interimResults = true;
+  this.onerror = null;
+  this.onend = null;
+  this.onresult = null;
+  this.lang = 'en_US';
+  exec(null, null, "SpeechRecognizer", "init", []);
+}
 /**
  * c'tor
  */
-function SpeechRecognizer() {
+//NativeSpeechRecognition.prototype.init = function() {
+//}
+
+exports.internalonresult = function(resultStr) {
+  if (!exports.onresult) return;
+  var matches = JSON.parse(resultStr);
+  var converted = {resultIndex: 0, results: []};
+  if (matches && matches["speechMatches"] && matches["speechMatches"]["speechMatch"]) {
+    converted.results.push( {isFinal: true, 0: {transcript: matches["speechMatches"]["speechMatch"][0]} } );
+  }
+  exports.onresult(converted);
 }
-
-/**
- * Initialize
- *
- * @param successCallback
- * @param errorCallback
- */
-SpeechRecognizer.prototype.init = function(successCallback, errorCallback) {
-     return cordova.exec(successCallback, errorCallback, "SpeechRecognizer", "init", []);
-};
-
+ 
 /**
  * Recognize speech and return a list of matches
  *
@@ -36,8 +44,11 @@ SpeechRecognizer.prototype.init = function(successCallback, errorCallback) {
  * @param maxMatches The maximum number of matches to return. 0 means the service decides how many to return.
  * @param promptString An optional string to prompt the user during recognition
  */
-SpeechRecognizer.prototype.startRecognize = function(successCallback, errorCallback, reqCode, maxMatches, promptString) {
-    return cordova.exec(successCallback, errorCallback, "SpeechRecognizer", "startRecognize", [reqCode, maxMatches, promptString]);
+exports.start = function() {
+    return exec(exports.internalonresult, exports.onerror, "SpeechRecognizer", "startRecognize", []);
+};
+
+exports.stop = function() {
 };
 
 /**
@@ -48,17 +59,7 @@ SpeechRecognizer.prototype.startRecognize = function(successCallback, errorCallb
  *
  * Returns an array of codes in the success callback
  */
-SpeechRecognizer.prototype.getSupportedLanguages = function(successCallback, errorCallback) {
-    return cordova.exec(successCallback, errorCallback, "SpeechRecognizer", "getSupportedLanguages", []);
+exports.getSupportedLanguages = function(successCallback, errorCallback) {
+    return exec(successCallback, errorCallback, "SpeechRecognizer", "getSupportedLanguages", []);
 };
-
-/**
- * Load
- */
-
-if (!exports.speechrecognizer) {
-    exports.speechrecognizer = new SpeechRecognizer();
-}
-
-})();
 });

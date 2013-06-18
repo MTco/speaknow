@@ -21,7 +21,12 @@ function TellMe($scope) {
   var start_timestamp;
   var final_transcript = null;
 
-  $scope.recognition = new webkitSpeechRecognition();
+  if (window.NativeSpeechRecognition) {
+    $scope.recognition = NativeSpeechRecognition;
+    $scope.recognition.init();
+  } else {
+    $scope.recognition = new webkitSpeechRecognition();
+  }
   $scope.recognition.continuous = true;
   $scope.recognition.interimResults = true;
 

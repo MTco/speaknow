@@ -16,7 +16,7 @@
   <name>Web Speech API</name>
 
   <js-module src="SpeechRecognizer.js" name="SpeechRecognizer">
-    <clobbers target="webkitSpeechRecognition" />
+    <clobbers target="NativeSpeechRecognition" />
   </js-module>
 
   <platform name="android">

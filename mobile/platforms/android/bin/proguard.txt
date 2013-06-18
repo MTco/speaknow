@@ -1,3 +1,3 @@
 # view AndroidManifest.xml #generated:21
--keep class io.cordova.hello_cordova.mobile { <init>(...); }
+-keep class io.cordova.hello_cordova.SpeakNow { <init>(...); }
 

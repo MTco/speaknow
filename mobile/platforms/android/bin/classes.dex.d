@@ -23,14 +23,14 @@
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/com/google/cordova/ChromeSocket$SocketData$Type.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/com/google/cordova/ChromeI18n.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/com/google/cordova/ChromeSocket$SocketData$ReadThread.class \
-/home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/com/google/speaknow/mobile/mobile.class \
+/home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/com/google/speaknow/SpeakNow/SpeakNow.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/R$string.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/R$attr.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/R$xml.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/R$drawable.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/R$layout.class \
+/home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/SpeakNow.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/R.class \
-/home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/mobile.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/classes/io/cordova/hello_cordova/BuildConfig.class \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/dexedLibs/cordova-dev-d14fcab06cf0604067e5c2bff2fde2a2.jar \
 /home/mangini/Developer/speaknow/mobile/platforms/android/bin/dexedLibs/google-play-services-fb639f79597253b4114c0fd364390ef8.jar \

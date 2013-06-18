@@ -3,14 +3,13 @@
         xmlns:cdv = "http://cordova.apache.org/ns/1.0"
         id        = "io.cordova.hello-cordova"
         version   = "2.0.0">
-    <name>Hello Cordova</name>
+    <name>SpeakNow</name>
 
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
     </description>
 
-    <author href="http://cordova.io" email="callback-dev@incubator.apache.org">
-        Apache Cordova Team
+    <author href="http://chromium.org" email="mangini@chromium.org">
+        Chrome DevRel team
     </author>
 
     <icon src="res/icon/cordova_512.png"        width="512" height="512" />
@@ -46,4 +45,5 @@
     <preference name="fullscreen"       value="false" />
 
     <access origin="*" />
+    <plugin name="Speech" value="com.phonegap.plugins.speech.SpeechRecognizer" />
 </widget>

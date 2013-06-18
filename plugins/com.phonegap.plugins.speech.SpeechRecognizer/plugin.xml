@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Copyright (c) 2013 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<plugin name="SpeechRecognizer" value=""/>
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.phonegap.plugins.speech.SpeechRecognizer"
+    version="1.0.0">
+  <engines>
+    <engine name="cordova" version=">=2.4.0" />
+  </engines>
+
+  <name>Web Speech API</name>
+
+  <js-module src="SpeechRecognizer.js" name="SpeechRecognizer">
+    <clobbers target="webkitSpeechRecognition" />
+  </js-module>
+
+  <platform name="android">
+    <source-file src="src/android/SpeechRecognizer.java" target-dir="src/com/phonegap/plugins/speech" />
+
+    <config-file target="res/xml/config.xml" parent="/widget">
+      <feature name="SpeechRecognizer">
+        <param name="android-package" value="com.phonegap.plugins.speech.SpeechRecognizer"/>
+      </feature>
+    </config-file>
+  </platform>
+
+</plugin>

@@ -1,5 +1,5 @@
 // Platform: android
-// 2.7.0rc1-84-g62c5786
+// 2.8.0rc1-0-g22bc4d8
 /*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
@@ -19,7 +19,7 @@
  under the License.
 */
 ;(function() {
-var CORDOVA_JS_BUILD_LABEL = '2.7.0rc1-84-g62c5786';
+var CORDOVA_JS_BUILD_LABEL = '2.8.0rc1-0-g22bc4d8';
 // file: lib/scripts/require.js
 
 var require,
@@ -2396,7 +2396,11 @@ function initRead(reader, file) {
     reader._error = null;
     reader._readyState = FileReader.LOADING;
 
-    if (typeof file.fullPath == 'string') {
+    if (typeof file == 'string') {
+        // Deprecated in Cordova 2.4.
+        console.warn('Using a string argument with FileReader.readAs functions is deprecated.');
+        reader._fileName = file;
+    } else if (typeof file.fullPath == 'string') {
         reader._fileName = file.fullPath;
     } else {
         reader._fileName = '';
@@ -3313,9 +3317,6 @@ InAppBrowser.prototype = {
     close: function (eventname) {
         exec(null, null, "InAppBrowser", "close", []);
     },
-    show: function (eventname) {
-      exec(null, null, "InAppBrowser", "show", []);
-    },
     addEventListener: function (eventname,f) {
         if (eventname in this.channels) {
             this.channels[eventname].subscribe(f);
@@ -4070,10 +4071,6 @@ module.exports = {
 // file: lib/android/plugin/android/nativeapiprovider.js
 define("cordova/plugin/android/nativeapiprovider", function(require, exports, module) {
 
-/**
- * Exports the ExposedJsApi.java object if available, otherwise exports the PromptBasedNativeApi.
- */
-
 var nativeApi = this._cordovaNative || require('cordova/plugin/android/promptbasednativeapi');
 var currentApi = nativeApi;
 
@@ -4151,11 +4148,6 @@ module.exports = {
 
 // file: lib/android/plugin/android/promptbasednativeapi.js
 define("cordova/plugin/android/promptbasednativeapi", function(require, exports, module) {
-
-/**
- * Implements the API of ExposedJsApi.java, but uses prompt() to communicate.
- * This is used only on the 2.3 simulator, where addJavascriptInterface() is broken.
- */
 
 module.exports = {
     exec: function(service, action, callbackId, argsJson) {
@@ -5080,6 +5072,7 @@ function Device() {
     this.available = false;
     this.platform = null;
     this.version = null;
+    this.name = null;
     this.uuid = null;
     this.cordova = null;
     this.model = null;
@@ -5095,6 +5088,7 @@ function Device() {
             me.available = true;
             me.platform = info.platform;
             me.version = info.version;
+            me.name = info.name;
             me.uuid = info.uuid;
             me.cordova = buildLabel;
             me.model = info.model;
@@ -6682,11 +6676,6 @@ window.cordova = require('cordova');
 // file: lib/scripts/bootstrap.js
 
 (function (context) {
-    if (context._cordovaJsLoaded) {
-        throw new Error('cordova.js included multiple times.');
-    }
-    context._cordovaJsLoaded = true;
-
     var channel = require('cordova/channel');
     var platformInitChannelsArray = [channel.onNativeReady, channel.onPluginsReady];
 

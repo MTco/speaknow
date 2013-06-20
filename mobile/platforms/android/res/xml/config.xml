@@ -75,7 +75,7 @@
         <param name="android-package" value="com.google.cordova.ChromeExtensionURLs" />
         <param name="onload" value="true" />
     </feature>
-    <content src="chrome-extension://ohgfbmefaoadakchflddcopcmphnlcba/chromeapp.html" />
+    <content src="chromeapp.html" />
     <feature name="ChromeI18n">
         <param name="android-package" value="com.google.cordova.ChromeI18n" />
         <param name="onload" value="true" />
@@ -98,6 +98,7 @@
     <feature name="SpeechRecognizer">
         <param name="android-package" value="com.phonegap.plugins.speech.SpeechRecognizer" />
     </feature>
+    <content src="chrome-extension://ohgfbmefaoadakchflddcopcmphnlcba/chromeapp.html" />
     <access origin="*" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />

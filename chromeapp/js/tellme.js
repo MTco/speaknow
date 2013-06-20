@@ -1,5 +1,4 @@
-
-// steady stream of sentences:
+  // steady stream of sentences:
   // - show sentence
   // - wait for pronounciation
   // - check for errors
@@ -7,19 +6,22 @@
   // - if errors, mark wrong words and accept clicks on wrong parts
   // - when click in wrong words, TTS them
 
-//
-
 function TellMe($scope) {
-  $scope.info = 'Speak now';
-  $scope.recognizing = false;
-  $scope.model = {
-    expected: convertSentenceToArray('This is the best app I have ever seen'),
-    recognized: []
-  };
-
   var ignore_onend = false;
   var start_timestamp;
   var final_transcript = null;
+  var currentSentence = 0;
+  var maxSentenceIndex = sentenceList.length-1;
+
+  $scope.info = 'Speak now';
+  $scope.recognizing = false;
+  $scope.model = {
+    expected: convertSentenceToArray(sentenceList[currentSentence]),
+    recognized: []
+  };
+  $scope.score = 0;
+  $scope.wordsDetected = 0;
+  $scope.correctWords = 0;
 
   if (window.NativeSpeechRecognition) {
     $scope.recognition = NativeSpeechRecognition;
@@ -100,7 +102,23 @@ function TellMe($scope) {
       sentence = sentence.replace(/^ +/, '');
       sentence = sentence.replace(/ +$/, '');
 
-      scope.model.recognized = sentence.split(/ +/);
+      var wordsCorrect = 0;
+      var tempSentence = sentence.split(/ +/);
+      for (var i=0; i<scope.model.expected.length; i++) {
+        if (i >= tempSentence.length) break;
+        if (scope.model.expected[i].word == tempSentence[i]) {
+          scope.model.expected[i].state = "correct";
+          wordsCorrect++;
+        }
+        else 
+          scope.model.expected[i].state = "wrong";
+      }
+      scope.model.recognized = tempSentence;
+      scope.wordsDetected = tempSentence.length;
+      scope.correctWords = wordsCorrect;
+
+      // update the score 
+      scope.score = (wordsCorrect/scope.model.expected.length) * 100.0;
     });
   }
 
@@ -110,6 +128,7 @@ function TellMe($scope) {
       $scope.recognizing = false;
       return;
     }
+    $scope.model.expected = convertSentenceToArray(sentenceList[currentSentence]);
     final_transcript = '';
     $scope.recognition.lang = 'en_US';
     $scope.recognition.start();
@@ -120,5 +139,14 @@ function TellMe($scope) {
     start_timestamp = Date.now();
   }
 
-
+  $scope.next = function() {
+    currentSentence++;
+    if (currentSentence > maxSentenceIndex)
+      currentSentence = 0;
+    $scope.model.expected = convertSentenceToArray(sentenceList[currentSentence]);    
+    $scope.model.recognized = [];
+    $scope.score = 0;
+    $scope.wordsDetected = 0;
+    $scope.correctWords = 0;
+  }
 }

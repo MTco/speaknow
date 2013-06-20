@@ -2,22 +2,34 @@
 <html ng-app ng-csp>
 <head>
    <meta charset="utf-8">
-   <title>Tell me now!</title>
+   <title>SpeakNow!</title>
    <link rel="stylesheet" type="text/css" href="css/tellme.css"></link>
    <script src="js/angular.js"></script>
+   <script src="js/speech.js"></script>
    <script src="js/tellme.js"></script>
-  <script src="http://192.168.1.126:8080/target/target-script-min.js"></script>
 </head>
 <body ng-controller="TellMe">
-  <div class="info">{{info}}</div>
-  <div class="sentence">
-    <div ng-repeat="item in model.expected" class="highlight {{item.state}}">
-      <div class="expected">{{item.word}}</div>
-      <div class="spoken">{{model.recognized[$index]}}</div>
+  <h1>SpeakNow!</h1>
+  <div id="content">
+    <!-- <div class="info">{{info}}</div> -->
+    <div class="header">Speak the following phrase:</div>
+    <div class="sentence">
+      <div ng-repeat="item in model.expected" class="highlight {{item.state}}">
+        <div class="expected">{{item.word}}</div>
+        <div class="spoken">{{model.recognized[$index]}}</div>
+      </div>
+    </div>
+    <div class="header">Results:</div>
+    <div class="results">
+      <div><span>Words: </span><span id="detected">{{wordsDetected}}</span></div>
+      <div><span>Correct: </span><span id="correct">{{correctWords}}</span></div>
+      <div><span>Score: </span><span id="score">{{score}}%</span></div>
     </div>
   </div>
-  <button ng-click='start()'>Ok, let's do it!</button>
-  <button>Next sentence</button>
-  <button ng-click='stop()'>I'm done!</button>
+  <div id="controls">
+    <button ng-click='start()'>Try It</button>
+    <button ng-click='next()'>Next Sentence</button>
+    <!-- <button ng-click='stop()'>I'm done!</button> -->
+  </div>
 </body>
 </html>

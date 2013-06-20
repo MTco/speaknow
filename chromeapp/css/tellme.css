@@ -12,17 +12,26 @@
 }
 body {
   font-family: 'Roboto';
-  font-size: 36px;
-  font-weight: 100;
+  font-weight: 300;
+  font-size: 18pt;
+  margin:0;
+  padding:0;
+  background-color: #FEFFFB;
+  color: #232D33;
 }
 .info {
   font-weight: 400;
   color: #666;
   font-size: 24px;
 }
-
-.sentence {
-  margin: 30px 0;
+.sentence, .results {
+  font-size: 32px;
+  margin: 20px 0;
+  border: 2px solid #849696;
+  padding: 15px;
+}
+.results {
+  font-size: 22px;
 }
 .highlight {
   display: inline-block;
@@ -34,7 +43,7 @@ body {
 }
 .highlight .spoken {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 18px;
 }
 .highlight.correct .expected {
   color: green;
@@ -43,4 +52,37 @@ body {
 .highlight.wrong .expected {
   color: rgb(201, 0, 0);
   font-weight: bold;
+}
+.header {
+  font-weight: bold;
+  color:004F09;
+}
+button {
+  background-color: #17384D;
+  color: #FEFFFB;
+  font-size: 16pt;
+  font-weight: bold;
+  padding: 10px;
+}
+#controls {
+  background-color: #849696;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+#content {
+  padding: 10px;
+}
+h1 {
+  font-size: 20pt;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 5pt 0 5pt 0;
+  border-bottom: 1px solid #232D33;
+  color: #17384D;
+  background-color: #849696;
 }

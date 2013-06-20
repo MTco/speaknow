@@ -10,7 +10,7 @@
 //
 
 function TellMe($scope) {
-  $scope.info = 'Speak now';
+  $scope.info = 'Are you ready?';
   $scope.recognizing = false;
   $scope.model = {
     expected: convertSentenceToArray('This is the best app I have ever seen'),
@@ -99,9 +99,28 @@ function TellMe($scope) {
       sentence = sentence.replace(/[^a-zA-Z0-9]/g, ' ');
       sentence = sentence.replace(/^ +/, '');
       sentence = sentence.replace(/ +$/, '');
+      words = sentence.split(/ +/);
+      scope.model.expected.forEach(function(m, i) {
+        if (words.length>i && words[i] == m.word) {
+	  m.state = 'correct';
+	} else {
+	  m.state = 'wrong';
+	}
+      });
 
-      scope.model.recognized = sentence.split(/ +/);
+      scope.model.recognized = words;
     });
+  }
+
+  $scope.simulate = function() {
+    window.setTimeout(function() {
+      var transcript = 'This is the fast app I have ever seen';
+      var sentence = linebreak(capitalize(transcript));
+      $scope.setRecognizedSentence(sentence);
+      console.log("got "+sentence+' transcript='+transcript, event);
+      $scope.recognizing = false;
+      $scope.info = '';
+    }, 0);
   }
 
   $scope.start = function() {
@@ -116,7 +135,7 @@ function TellMe($scope) {
     ignore_onend = false;
 
     $scope.model.recognized = [];
-    $scope.info = 'info_allow';
+    $scope.info = 'Speak now';
     start_timestamp = Date.now();
   }
 

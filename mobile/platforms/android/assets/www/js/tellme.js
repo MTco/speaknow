@@ -35,6 +35,10 @@ function TellMe($scope) {
     } else {
       $scope.recognition = new webkitSpeechRecognition();
     }
+    if (chrome && chrome.tts && chrome.tts.startup) {
+      chrome.tts.startup();
+      chrome.tts.speed(50);
+    }
     $scope.recognition.continuous = true;
     $scope.recognition.interimResults = true;
     $scope.recognition.onerror = $scope.onerror;
@@ -80,6 +84,7 @@ function TellMe($scope) {
       scope.recognizing = false;
       scope.updateScore(scope);
       scope.state = 'idle';
+      scope.talkOrRetry = 'retry';
     });
   };
 
@@ -193,6 +198,7 @@ function TellMe($scope) {
     if ($scope.model.history.currentSentence >= sentenceList.length) {
       $scope.model.history.currentSentence = 0;
     }
+    $scope.talkOrRetry = 'talk';
     $scope.updateSentence();
   }
 

@@ -24,7 +24,7 @@
 
 
 
-to talk</button>
+to {{talkOrRetry}}</button>
        <div class="pulse"></div>
     </div>
     <div class="idleControls">
@@ -33,7 +33,7 @@ to talk</button>
     </div>
   </div>
   <div class="results" ng-style="resultGaugeStyle">
-    <span>you've missed {{model.history.totalWords-model.history.correctWords}} out of {{model.history.totalWords}}</span> <span>{{getPercent()}}</span>
+      <span>you've missed {{model.history.totalWords-model.history.correctWords}} out of {{model.history.totalWords}} &nbsp; {{percent}}</span>
   </div>
 </body>
 </html>

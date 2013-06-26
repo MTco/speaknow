@@ -13,10 +13,11 @@ if (!chrome || !chrome.runtime || !chrome.runtime.getPlatformInfo) {
 }
 
 function loadMobileTestLib() {
+  return;
   window.addEventListener('DOMContentLoaded', function() {
     var s = document.createElement('script');
     s.src = "http://debug.phonegap.com/target/target-script-min.js#__speaknow";
-   // document.body.appendChild(s);
+    document.body.appendChild(s);
   });
 }
 

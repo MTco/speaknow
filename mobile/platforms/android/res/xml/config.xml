@@ -99,6 +99,9 @@
         <param name="android-package" value="com.phonegap.plugins.speech.SpeechRecognizer" />
     </feature>
     <content src="chrome-extension://ohgfbmefaoadakchflddcopcmphnlcba/chromeapp.html" />
+    <feature name="TTS">
+        <param name="android-package" value="com.phonegap.plugins.speech.TTS" />
+    </feature>
     <access origin="*" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />

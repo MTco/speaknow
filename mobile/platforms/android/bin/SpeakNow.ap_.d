@@ -46,6 +46,7 @@
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome.socket \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome-common \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.FileChooser \
+/home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/com.phonegap.plugins.speech.TTS \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome.fileSystem \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome.identity \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.polyfill.CustomEvent/customEvent.js \
@@ -68,6 +69,7 @@
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome.socket/socket.js \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome-common/events.js \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.FileChooser/fileChooser.js \
+/home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/com.phonegap.plugins.speech.TTS/tts.js \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome.fileSystem/fileSystem.js \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/plugins/org.chromium.chrome.identity/identity.js \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/assets/www/css/font-roboto.woff \

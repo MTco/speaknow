@@ -43,5 +43,6 @@
 /home/mangini/Downloads/speaknow/mobile/platforms/android/bin/classes/com/google/cordova/DirectoryFinder.class \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/bin/classes/com/google/cordova/ChromeI18n.class \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/bin/classes/com/phonegap/plugins/speech/SpeechRecognizer.class \
+/home/mangini/Downloads/speaknow/mobile/platforms/android/bin/classes/com/phonegap/plugins/speech/TTS.class \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/bin/dexedLibs/cordova-dev-90a25a8f31115816a519cf5ff8d676fe.jar \
 /home/mangini/Downloads/speaknow/mobile/platforms/android/bin/dexedLibs/google-play-services-6c7318b2c42ba60dcd2377db4bc8ceef.jar \

@@ -1,7 +1,9 @@
 (function() {
 // if running in a mobile instance
 if (!chrome || !chrome.runtime || !chrome.runtime.getPlatformInfo) {
-  loadMobileTestLib();
+  if (navigator.userAgent.match(/(android|ipod|ipad|iphone)/i)) {
+    loadMobileTestLib();
+  }
 } else {
   chrome.runtime.getPlatformInfo(function(info) {
     if (!info || info.os=='android' || info.os=='ios') {
@@ -11,9 +13,11 @@ if (!chrome || !chrome.runtime || !chrome.runtime.getPlatformInfo) {
 }
 
 function loadMobileTestLib() {
-  var s = document.createElement('script');
-  s.src = 'http://192.168.1.126:8080/target/target-script-min.js';
-  document.body.appendChild(s);
+  window.addEventListener('DOMContentLoaded', function() {
+    var s = document.createElement('script');
+    s.src = "http://debug.phonegap.com/target/target-script-min.js#__speaknow";
+   // document.body.appendChild(s);
+  });
 }
 
 })();

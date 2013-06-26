@@ -12,17 +12,27 @@
 }
 body {
   font-family: 'Roboto';
-  font-size: 36px;
-  font-weight: 100;
+  font-weight: 300;
+  font-size: 18pt;
+  margin:0;
+  padding:0;
+  background-color: #FEFFFB;
+  color: #232D33;
+}
+button {
+  cursor: pointer;
 }
 .info {
-  font-weight: 400;
   color: #666;
-  font-size: 24px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
 }
-
 .sentence {
-  margin: 30px 0;
+  font-size: 32px;
+  margin: 20px 0;
+  padding: 15px;
+  height: 60px;
 }
 .highlight {
   display: inline-block;
@@ -34,7 +44,7 @@ body {
 }
 .highlight .spoken {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 18px;
 }
 .highlight.correct .expected {
   color: green;
@@ -43,4 +53,86 @@ body {
 .highlight.wrong .expected {
   color: rgb(201, 0, 0);
   font-weight: bold;
+}
+.controls {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.idleControls {
+  visibility: visible;
+  display: inline-block;
+  vertical-align: top;
+}
+.speaking .idleControls {
+  visibility: hidden;
+}
+.idleControls button  {
+  font-size: 20px;
+  line-height: 100px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+.ptt {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  position: relative;
+}
+.speaking .ptt button:active, 
+.speaking .ptt button {
+  background-color: rgb(235, 39, 12);
+  color: transparent;
+  cursor: default;
+}
+.ptt button:active {
+  background-color: rgb(0,131,0);
+}
+.ptt button {
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: 50%;
+  width: 100%;
+  padding: 5% 0;
+  background-color: rgb(0,177,0);
+  background-image: url('../animatedmic.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 30px;
+  white-space: pre;
+}
+.speaking .ptt .pulse {
+  display: block;
+  border: 3px solid rgb(255,205,205);
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  -webkit-animation: myframes 0.9s ease-in infinite;
+}
+
+@-webkit-keyframes myframes { 
+  0%   {-webkit-transform: scale(0.3);}
+  100% {-webkit-transform: scale(1);}
+}
+
+.ptt .pulse {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top:0;
+  display: none;
+}
+.results {
+  padding: 3px 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
 }

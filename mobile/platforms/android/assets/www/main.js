@@ -5,10 +5,10 @@
  */
 chrome.app.runtime.onLaunched.addListener(function() {
   chrome.app.window.create('index.html', {
-    id: 'main',
+    id: 'speak',
     bounds: {
       width: 300,
-      height: 300
+      height: 400
     }
   });
 });

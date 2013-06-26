@@ -2,22 +2,38 @@
 <html ng-app ng-csp>
 <head>
    <meta charset="utf-8">
-   <title>Tell me now!</title>
+   <title>SpeakNow!</title>
    <link rel="stylesheet" type="text/css" href="css/tellme.css"></link>
    <script src="js/angular.js"></script>
+   <script src="js/speech.js"></script>
    <script src="js/tellme.js"></script>
-  <script src="http://192.168.1.126:8080/target/target-script-min.js"></script>
+   <script src="js/mobile_debug.js"></script>
 </head>
 <body ng-controller="TellMe">
-  <div class="info">{{info}}</div>
+  <div ng-click="simulate()" class="info">{{info}}</div>
   <div class="sentence">
     <div ng-repeat="item in model.expected" class="highlight {{item.state}}">
       <div class="expected">{{item.word}}</div>
       <div class="spoken">{{model.recognized[$index]}}</div>
     </div>
   </div>
-  <button ng-click='start()'>Ok, let's do it!</button>
-  <button>Next sentence</button>
-  <button ng-click='stop()'>I'm done!</button>
+  <div class="controls {{state}}">
+    <div class="ptt" ng-click="start()">
+<!-- Don't remove the empty lines below! -->
+      <button>Push
+
+
+
+to talk</button>
+       <div class="pulse"></div>
+    </div>
+    <div class="idleControls">
+      <div><button ng-click="play()">play</button></div>
+      <div><button ng-click="next()">next</button></div>
+    </div>
+  </div>
+  <div class="results" ng-style="resultGaugeStyle">
+    <span>you've missed {{model.history.totalWords-model.history.correctWords}} out of {{model.history.totalWords}}</span> <span>{{getPercent()}}</span>
+  </div>
 </body>
 </html>

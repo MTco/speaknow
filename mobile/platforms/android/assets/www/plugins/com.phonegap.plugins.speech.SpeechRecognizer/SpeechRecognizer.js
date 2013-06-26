@@ -33,6 +33,7 @@ exports.internalonresult = function(resultStr) {
     converted.results.push( {isFinal: true, 0: {transcript: matches["speechMatches"]["speechMatch"][0]} } );
   }
   exports.onresult(converted);
+  exports.onend();
 }
  
 /**

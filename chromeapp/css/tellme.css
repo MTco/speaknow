@@ -31,9 +31,16 @@ button {
 }
 .sentence {
   font-size: 32px;
-  margin: 20px 0;
+  margin: 20px;
   padding: 15px;
-  height: 60px;
+  height: 100px;
+  border: 1px solid #cecece;
+}
+.uitext {
+  font-size: 14pt;
+  margin-left: 20px;
+  font-weight: bold;
+  line-height: 1.25;
 }
 .highlight {
   display: inline-block;
@@ -100,7 +107,7 @@ button {
   color: white;
   cursor: pointer;
   border-color: transparent;
-  border-radius: 50%;
+  border-radius: 50px;
   width: 200px;
   height: 200px;
   background-color: rgb(33, 204, 0);
@@ -114,7 +121,7 @@ button {
 .speaking .ptt .pulse {
   display: block;
   border: 3px solid rgb(255,205,205);
-  border-radius: 100%;
+  border-radius: 50px;
   width: 200px;
   height: 200px;
   -webkit-animation: myframes 0.9s ease-in infinite;
@@ -144,4 +151,13 @@ button {
 }
 .results span {
   padding: 0px 10px;
+}
+h1 {
+  font-size: 24pt;
+  text-align: center;
+  color:#444;
+  line-height: 1.2em;
+  vertical-align: middle;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
 }

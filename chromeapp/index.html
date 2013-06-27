@@ -10,7 +10,9 @@
    <script src="js/mobile_debug.js"></script>
 </head>
 <body ng-controller="TellMe">
+  <h1>SpeakNow!</h1>
   <div ng-click="simulate()" class="info">{{info}}</div>
+  <div class="uitext">Try the following phrase:</div>
   <div class="sentence">
     <div ng-repeat="item in model.expected" class="highlight {{item.state}}">
       <div class="expected">{{item.word}}</div>

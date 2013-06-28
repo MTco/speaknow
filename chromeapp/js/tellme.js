@@ -39,7 +39,7 @@ function TellMe($scope) {
     }
     if (chrome && chrome.tts && chrome.tts.startup) {
       chrome.tts.startup();
-      chrome.tts.speed(50);
+      chrome.tts.speed(80);
     }
     $scope.recognition.continuous = true;
     $scope.recognition.interimResults = true;

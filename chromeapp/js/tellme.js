@@ -8,6 +8,8 @@
 
 function TellMe($scope) {
 
+  document.querySelector('.ptt').addEventListener('touchstart', function() { return true; });
+
   $scope.state = 'idle';
   $scope.talkOrRetry = 'talk';
   $scope.resultGaugeStyle = {

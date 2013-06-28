@@ -1,6 +1,5 @@
-
 .DS_Store
-
 *.class
-
-*.class
+mobile/platforms
+mobile/merges
+mobile/plugins

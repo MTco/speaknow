@@ -63,12 +63,10 @@ button {
   font-weight: bold;
 }
 .controls {
-  text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
   position: absolute;
-  bottom: 20px;
 }
 .idleControls {
   visibility: visible;
@@ -81,15 +79,11 @@ button {
 .idleControls button  {
   width: 85px;
   font-size: 20px;
-  line-height: 100px;
   padding: 0 20px;
   font-weight: bold;
-  height: 100px;
 }
 
 .ptt {
-  width: 200px;
-  height: 200px;
   display: inline-block;
   position: relative;
 }
@@ -107,23 +101,16 @@ button {
   color: white;
   cursor: pointer;
   border-color: transparent;
-  border-radius: 50px;
-  width: 200px;
-  height: 200px;
   background-color: rgb(33, 204, 0);
   background-image: url('../animatedmic.gif');
   background-position: center;
   background-repeat: no-repeat;
-  font-size: 30px;
   white-space: pre;
   padding: 0;
 }
 .speaking .ptt .pulse {
   display: block;
   border: 3px solid rgb(255,205,205);
-  border-radius: 50px;
-  width: 200px;
-  height: 200px;
   -webkit-animation: myframes 0.9s ease-in infinite;
 }
 
@@ -133,8 +120,6 @@ button {
 }
 
 .ptt .pulse {
-  width: 200px;
-  height: 200px;
   position: absolute;
   top:0;
   display: none;

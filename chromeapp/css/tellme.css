@@ -39,7 +39,7 @@ button {
 .uitext {
   font-size: 14pt;
   margin-left: 20px;
-  font-weight: bold;
+  margin-top: 20px;
   line-height: 1.25;
 }
 .highlight {
@@ -151,13 +151,4 @@ button {
 }
 .results span {
   padding: 0px 10px;
-}
-h1 {
-  font-size: 24pt;
-  text-align: center;
-  color:#444;
-  line-height: 1.2em;
-  vertical-align: middle;
-  border-bottom: 1px solid #444;
-  padding-bottom: 15px;
 }

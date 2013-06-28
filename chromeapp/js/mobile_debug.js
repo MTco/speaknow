@@ -1,6 +1,6 @@
 (function() {
 // if running in a mobile instance
-if (!chrome || !chrome.runtime || !chrome.runtime.getPlatformInfo) {
+if (typeof(chrome)!='undefined' || !chrome.runtime || !chrome.runtime.getPlatformInfo) {
   if (navigator.userAgent.match(/(android|ipod|ipad|iphone)/i)) {
     loadMobileTestLib();
   }
